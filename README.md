@@ -17,7 +17,7 @@ pip install src
 
 Start application locally:
 ```bash
-uvicorn main:app --reload         # checkout swagger docs: http://127.0.0.1:8000/docs 
+uvicorn main:app --reload         # checkout Swagger docs: http://127.0.0.1:8000/docs 
 ```
 
 Build image and run app in container:
