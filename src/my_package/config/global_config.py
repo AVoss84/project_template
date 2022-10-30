@@ -33,7 +33,7 @@ else:
 for env in list(defaults.keys()):
     if env not in os.environ:
         os.environ[env] = defaults[env]
-        print("Environment Variable: " + str(env) + " has been set to default: " + str(os.environ[env]))
+        print(f"Environment Variable: {str(env)} has been set to default: {str(os.environ[env])}")
 
 UC_CODE_DIR = os.environ['UC_CODE_DIR']  
 UC_DATA_DIR = os.environ['UC_DATA_DIR']                 
