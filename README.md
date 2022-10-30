@@ -1,4 +1,6 @@
 
+### Install package and run application
+
 Create conda virtual environment with required packages 
 ```bash
 #conda env create -f environment.yml   # optionally
@@ -10,7 +12,7 @@ To install the package locally, execute the following steps:
 
 ```bash
 pip install -r requirements.txt         
-pip install -e src
+pip install src
 ```
 
 Start application locally:
