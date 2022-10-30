@@ -1,6 +1,6 @@
 # Python template for generic Data Science package 
 
-This is a blueprint of a generic end-to-end data science project, i.e. building a Python package for data preprocessing, model training, prediction, postprocessing, REST API construction for real-time model serving and deployment as a microservice.
+This is a blueprint of a generic end-to-end data science project, i.e. building a Python package along the usual steps: data preprocessing, model training, prediction, postprocessing, REST API construction (for real-time model serving) and finally deployment as a microservice.
 
 ### Install package and build application
 
