@@ -13,8 +13,9 @@ pip install -r requirements.txt
 pip install -e src
 ```
 
+Start application:
 ```bash
-uvicorn main:app --reload         # start application, checkout docs http://127.0.0.1:8000/docs 
+uvicorn main:app --reload         # checkout docs http://127.0.0.1:8000/docs 
 ```
 
 Build image and start container:
