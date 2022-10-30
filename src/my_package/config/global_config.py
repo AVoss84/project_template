@@ -14,7 +14,7 @@ if using == 'vm':
     defaults = {
             "UC_CODE_DIR": str(Path.home() / "Documents/GitHub/project_template/src"),       
             "UC_DATA_DIR": "",          # external
-            "UC_DATA_PKG_DIR": "",   # internal, i.e. data folder within package                  
+            "UC_DATA_PKG_DIR": "",      # internal, i.e. data folder within package                  
             "UC_DB_CONNECTION": 'postgresql://postgres...', 
             "UC_PORT": "5000", 
             "UC_APP_CONNECTION": "127.0.0.1"
@@ -26,7 +26,7 @@ else:
             "UC_DATA_PKG_DIR": "/app/src/my_package/data/",    # data folder within package
             "UC_DB_CONNECTION": 'postgresql://postgres...',
             "UC_PORT": "5000",
-            "UC_APP_CONNECTION": "0.0.0.0"
+            "UC_APP_CONNECTION": "0.0.0.0"    #8080
 }    
 #-------------------------------------------------------------------------------------------------------------------------------
 

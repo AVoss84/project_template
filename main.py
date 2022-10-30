@@ -1,6 +1,7 @@
 import sys, logging, uvicorn
 from loguru import logger
 from fastapi import FastAPI
+from src.my_package.config import global_config as glob
 
 logger.add(sys.stdout, format='{time} | {level: <8} | {name: ^15} | {function: ^15} | '
                               '{line: >3} | {message}', level=logging.DEBUG, serialize=False)
@@ -17,7 +18,6 @@ def health_check():
     logger.info(status)
     return status
 
-
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    uvicorn.run(app, host=str(glob.UC_APP_CONNECTION), port=int(glob.UC_PORT))
     

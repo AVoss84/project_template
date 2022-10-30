@@ -1,0 +1,16 @@
+input:
+        used_columns:
+          clm_no : clm_no
+          clm_dol : clm_dol
+          clm_don : clm_don
+          clm_desc : clm_desc 
+          clm_city : clm_city
+          clm_street : clm_street
+          clm_postcode: clm_postcode
+          clm_country : clm_country 
+          clm_lob: clm_lob 
+          clmnt_full_name : clmnt_full_name  
+          insd_full_name : insd_full_name
+          pol_no : pol_no
+
+  

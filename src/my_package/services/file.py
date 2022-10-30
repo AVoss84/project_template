@@ -1,7 +1,10 @@
+"""
+Services for reading and writing from and to various file formats
+"""
 import pandas as pd
 from imp import reload
 import os, yaml
-from typing import (Dict, List, Text, Optional, Any, Self)
+from typing import (Dict, List, Text, Optional, Any)
 from my_package.config import global_config as glob
 
 class CSVService:
