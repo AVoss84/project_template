@@ -1,5 +1,5 @@
 
-### Install package and run application
+### Install package and build application
 
 Create conda virtual environment with required packages 
 ```bash
