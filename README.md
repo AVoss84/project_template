@@ -6,7 +6,6 @@ This is a blueprint of a generic end-to-end data science project, i.e. building 
 
 Create conda virtual environment with required packages 
 ```bash
-#conda env create -f environment.yml   # optionally
 conda create -n proj_templ python=3.8 -y
 conda activate proj_templ
 ```
