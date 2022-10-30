@@ -1,5 +1,5 @@
 
-### Create conda virtual environment with required packages 
+Create conda virtual environment with required packages 
 ```bash
 #conda env create -f environment.yml   # optionally
 conda create -n proj_templ python=3.8 -y
