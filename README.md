@@ -13,12 +13,12 @@ pip install -r requirements.txt
 pip install -e src
 ```
 
-Start application:
+Start application locally:
 ```bash
 uvicorn main:app --reload         # checkout docs http://127.0.0.1:8000/docs 
 ```
 
-Build image and start container:
+Build image and run app in container:
 ```bash                                 
 docker-compose up -d 
 ```
