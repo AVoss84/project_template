@@ -14,7 +14,7 @@ To install the package locally execute the following steps:
 
 ```bash
 pip install -r requirements.txt         
-pip install src
+pip install src                     # install own package
 ```
 
 Start application locally:
