@@ -1,2 +1,25 @@
-# project_template
-Generic data science repository blueprint
+
+### Create conda virtual environment with required packages 
+```bash
+#conda env create -f environment.yml   # optionally
+conda create -n proj_templ python=3.8 -y
+conda activate proj_templ
+```
+
+To install the package locally, execute the following steps:
+
+```bash
+pip install -r requirements.txt         
+pip install -e src
+```
+
+```bash
+uvicorn main:app --reload         # start application, checkout docs http://127.0.0.1:8000/docs 
+```
+
+Build image and start container:
+```bash                                 
+docker-compose up -d 
+```
+
+ 
