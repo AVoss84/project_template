@@ -147,7 +147,7 @@ class YAMLservice:
             """Read from YAML file
 
             Returns:
-                Any: Input data as dict or list
+                Union[Dict, List]: Read-in yaml file
             """
             with open(self.path, 'r') as stream:
                 try:
