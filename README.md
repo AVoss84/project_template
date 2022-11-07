@@ -8,7 +8,7 @@ This is a blueprint of a generic end-to-end data science project, i.e. building 
 ├── docker-compose.yaml
 ├── Dockerfile
 ├── logs
-├── main.py
+├── main.py                               # REST API definition 
 ├── README.md
 ├── requirements.txt
 └── src
@@ -16,10 +16,10 @@ This is a blueprint of a generic end-to-end data science project, i.e. building 
     ├── my_package
     │   ├── config
     │   │   ├── config.py
-    │   │   ├── global_config.py
+    │   │   ├── global_config.py          # user environemntal variables
     │   │   ├── __init__.py
-    │   │   └── input_output.yaml
-    │   ├── data
+    │   │   └── input_output.yaml         # structure reading and writing of files
+    │   ├── data                          # temporary data dump (will be git ignored), e.g. pickle files
     │   ├── resources
     │   │   ├── __init__.py
     │   │   ├── postprocessor.py
