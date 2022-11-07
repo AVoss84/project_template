@@ -2,7 +2,47 @@
 
 This is a blueprint of a generic end-to-end data science project, i.e. building a Python package along the usual steps: data preprocessing, model training, prediction, postprocessing, REST API construction (for real-time model serving) and containerization for final deployment as a microservice.
 
-### Install package and build application
+## Package structure
+
+```
+├── docker-compose.yaml
+├── Dockerfile
+├── logs
+├── main.py
+├── README.md
+├── requirements.txt
+└── src
+    ├── __init__.py
+    ├── my_package
+    │   ├── config
+    │   │   ├── config.py
+    │   │   ├── global_config.py
+    │   │   ├── __init__.py
+    │   │   └── input_output.yaml
+    │   ├── data
+    │   ├── resources
+    │   │   ├── __init__.py
+    │   │   ├── postprocessor.py
+    │   │   ├── predictor.py
+    │   │   ├── preprocessor.py
+    │   │   ├── README.md
+    │   │   └── trainer.py
+    │   ├── services
+    │   │   ├── file.py
+    │   │   ├── __init__.py
+    │   │   ├── pipelines.py
+    │   │   ├── publisher.py
+    │   │   └── README.md
+    │   └── utils
+    │       ├── __init__.py
+    │       └── utils.py
+    ├── notebooks
+    └── setup.py
+```
+
+## Use Case description
+
+## Install package and build application
 
 Create conda virtual environment with required packages 
 ```bash
