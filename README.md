@@ -51,7 +51,7 @@ This is a blueprint of a generic end-to-end data science project, i.e. building 
 **Business impact KPI**: Faster STP (in hours/days)
 
 
-## Install package and build application
+## Package installation 
 
 Create conda virtual environment with required packages 
 ```bash
