@@ -1,7 +1,9 @@
 input:
     service:
           CSVService:         
-              path: my_file.csv      # some input csv
+              path: my_input_file.csv        # some input csv
+          XLSXService:         
+              path: my_input_file2.xlsx      # some input xls
 
     schema_map:
           categorical_cols:

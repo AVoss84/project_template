@@ -1,4 +1,3 @@
-from my_package.config import global_config as glob 
 from my_package.services.file import YAMLservice
 
 my_yaml = YAMLservice(path = "my_package/config/input_output.yaml")
