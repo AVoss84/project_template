@@ -30,7 +30,7 @@ else:
 }    
 #-------------------------------------------------------------------------------------------------------------------------------
 
-for env in list(defaults.keys()):
+for env in defaults.keys():
     if env not in os.environ:
         os.environ[env] = defaults[env]
         print(f"Environment Variable: {str(env)} has been set to default: {str(os.environ[env])}")
