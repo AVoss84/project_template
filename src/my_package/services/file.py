@@ -164,7 +164,6 @@ class YAMLservice:
                 except yaml.YAMLError as exc:
                     print(exc)
 
-
 class TXTService:
     def __init__(self, path : Optional[str] = "", root_path : Optional[str] = glob.UC_DATA_DIR, verbose : bool = True):
         """Generic read/write service for TXT-files
