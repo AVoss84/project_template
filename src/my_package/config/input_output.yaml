@@ -1,7 +1,9 @@
 input:
     service:
           CSVService:         
-              path: my_file.csv      # some input csv
+              path: my_input_file.csv        # some input csv
+          XLSXService:         
+              path: my_input_file2.xlsx      # some input xls
 
     schema_map:
           categorical_cols:
@@ -18,10 +20,6 @@ input:
           text_cols:
               Claim Description: clm_desc 
               Claim Status Description: clm_status_desc 
-              Loss Analysis 1 Description: clm_la1 
-              Loss Analysis 2 Description: clm_la2 
-              Loss Analysis 3 Description: clm_la3 
-              Loss Analysis 4 Description: clm_la4 
               Cat. Code 1 Description: clm_cat1_desc 
               Cat. Code 2 Description: clm_cat2_desc 
               Cat. Code 3 Description: clm_cat3_desc 
