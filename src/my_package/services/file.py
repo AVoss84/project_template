@@ -1,10 +1,10 @@
 """
 Services for reading and writing from and to various file formats
 """
-import pandas as pd
-from imp import reload
+from typing import (Dict, List, Optional, Union)
 import os, yaml, json, toml, pickle
-from typing import (Dict, List, Text, Optional, Any, Union, Tuple)
+import pandas as pd
+#from imp import reload
 from my_package.config import global_config as glob
 
 class CSVService:
@@ -31,7 +31,8 @@ class CSVService:
             pd.DataFrame: data converted to dataframe
         """
         df = pd.read_csv(filepath_or_buffer=self.path, encoding=self.encoding, delimiter=self.delimiter, **kwargs)
-        if self.verbose: print(f"CSV Service Read from File: {str(self.path)}")
+        if self.verbose: 
+            print(f"CSV Service Read from File: {str(self.path)}")
         if self.schema_map:
             df.rename(columns=self.schema_map, inplace=True)
         return df
@@ -42,7 +43,8 @@ class CSVService:
             X (pd.DataFrame): input data
         """
         X.to_csv(path_or_buf=self.path, encoding=self.encoding, sep=self.delimiter, **kwargs)
-        if self.verbose: print(f"CSV Service Output to File: {str(self.path)}")
+        if self.verbose: 
+            print(f"CSV Service Output to File: {str(self.path)}")
 
 
 class XLSXService:
@@ -67,7 +69,8 @@ class XLSXService:
             pd.DataFrame: input data as dataframe
         """
         df = pd.read_excel(self.path, self.sheetname, **kwargs)
-        if self.verbose: print(f"XLS Service Read from File: {str(self.path)}")
+        if self.verbose: 
+            print(f"XLS Service Read from File: {str(self.path)}")
         if self.schema_map:
             df.rename(columns=self.schema_map, inplace=True)
         return df    
@@ -79,7 +82,8 @@ class XLSXService:
         """
         X.to_excel(self.writer, self.sheetname, **kwargs)
         self.writer.save()
-        if self.verbose: print(f"XLSX Service Output to File: {str(self.path)}")
+        if self.verbose: 
+            print(f"XLSX Service Output to File: {str(self.path)}")
 
 
 class PickleService:
@@ -105,7 +109,8 @@ class PickleService:
         try:
             if self.is_df:
                 data = pd.read_pickle(self.path, **kwargs)
-                if self.schema_map: self.df.rename(columns = self.schema_map, inplace = True)
+                if self.schema_map: 
+                    self.df.rename(columns = self.schema_map, inplace = True)
             else:
                 data = pickle.load(open(self.path, "rb"))
             if self.verbose : print(f"Pickle Service Read from file: {str(self.path)}")
@@ -123,7 +128,8 @@ class PickleService:
                 X.to_pickle(path = self.path, compression = None)        # "gzip"
             else:
                 pickle.dump(X, open(self.path, "wb"))
-            if self.verbose : print(f"Pickle Service Read from file: {str(self.path)}")
+            if self.verbose : 
+                print(f"Pickle Service Read from file: {str(self.path)}")
         except Exception as e:
             print(e)
             
@@ -147,7 +153,8 @@ class YAMLservice:
             with open(self.path, 'r') as stream:
                 try:
                     my_yaml_load = yaml.load(stream, Loader=yaml.FullLoader, **kwargs)   
-                    if self.verbose: print(f"Read: {self.path}")
+                    if self.verbose: 
+                        print(f"Read: {self.path}")
                 except yaml.YAMLError as exc:
                     print(exc) 
             return my_yaml_load
@@ -160,7 +167,8 @@ class YAMLservice:
             with open(self.path, 'w') as outfile:
                 try:
                     yaml.dump(X, outfile, default_flow_style=False)
-                    if self.verbose: print(f"Write to: {self.path}")
+                    if self.verbose: 
+                        print(f"Write to: {self.path}")
                 except yaml.YAMLError as exc:
                     print(exc)
 
@@ -184,7 +192,8 @@ class TXTService:
             with open(self.path, **kwargs) as f:
                 df = f.read().splitlines()
             #df = pd.read_csv(self.path, sep=" ", header=None, encoding = self.encoding, **kwargs)
-            if self.verbose : print(f"TXT Service read from file: {str(self.path)}")    
+            if self.verbose : 
+                print(f"TXT Service read from file: {str(self.path)}")    
         except Exception as e0:
             print(e0); df = None
         finally: 
@@ -199,7 +208,8 @@ class TXTService:
             with open(self.path, 'w', **kwargs) as f:
                 f.write('\n'.join(X))
             #X.to_csv(self.path, index=None, sep=' ', header=None, encoding = self.encoding, mode='w+', **kwargs)
-            if self.verbose : print(f"TXT Service output to file: {str(self.path)}")  
+            if self.verbose : 
+                print(f"TXT Service output to file: {str(self.path)}")  
         except Exception as e0:
             print(e0)
 
@@ -220,7 +230,8 @@ class JSONservice:
             try:
                 with open(self.path, 'r') as stream:
                     my_json_load = json.load(stream, **kwargs)                    
-                if self.verbose: print(f'Read: {self.path}')
+                if self.verbose: 
+                    print(f'Read: {self.path}')
                 return my_json_load    
             except Exception as exc:
                 print(exc) 
@@ -233,7 +244,8 @@ class JSONservice:
             with open(self.path, 'w', encoding='utf-8') as outfile:
                 try:
                     json.dump(X, outfile, ensure_ascii=False, indent=4, **kwargs)
-                    if self.verbose: print(f'Write to: {self.path}')
+                    if self.verbose: 
+                        print(f'Write to: {self.path}')
                 except Exception as exc:
                     print(exc) 
                    
@@ -258,7 +270,8 @@ class TOMLservice:
             with open(os.path.join(self.root_path, self.path), 'r') as stream:
                 try:
                     toml_load = toml.load(stream, **kwargs)   
-                    if self.verbose: print(f"Read: {self.root_path+self.path}")
+                    if self.verbose: 
+                        print(f"Read: {self.root_path+self.path}")
                 except Exception as exc:
                     print(exc) 
             return toml_load
@@ -271,7 +284,8 @@ class TOMLservice:
             with open(os.path.join(self.root_path, self.path), 'w') as outfile:
                 try:
                     toml.dump(X, outfile)
-                    if self.verbose: print(f"Write to: {self.root_path+self.path}")
+                    if self.verbose: 
+                        print(f"Write to: {self.root_path+self.path}")
                 except Exception as exc:
                     print(exc)
                     

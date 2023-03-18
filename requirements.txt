@@ -3,3 +3,5 @@ fastapi
 loguru
 pandas
 PyYAML
+toml
+#boto3      # in case you want to use AWS

@@ -1,13 +1,13 @@
 """
 Services for reading and writing from and to AWS S3 of various file formats
 """
+from typing import (List, Optional, Callable)
+import os, toml, boto3
+from io import (BytesIO, StringIO)
 import pandas as pd
 from my_package.config import global_config as glob
 from my_package.services import file
-from imp import reload
-import os, toml, boto3
-from io import (BytesIO, StringIO)
-from typing import (Dict, List, Text, Optional, Any, Callable, Union)
+#from imp import reload
 
 
 def list_files(bucket: Callable, path : str = "")-> List:
@@ -55,7 +55,8 @@ class CSVService:
             bytes_data = self.s3obj['Body'].read()
             df = pd.read_csv(BytesIO(bytes_data), encoding=self.encoding, delimiter=self.delimiter, **kwargs)
             #df = pd.read_csv(self.s3obj['Body'], index_col=0, encoding=self.encoding, delimiter=self.delimiter, **kwargs)
-            if self.verbose: print(f"CSV Service Read from File: {str(self.path)}")
+            if self.verbose: 
+                print(f"CSV Service Read from File: {str(self.path)}")
             if self.schema_map: df.rename(columns=self.schema_map, inplace=True)
             return df
         except Exception as ex:
@@ -72,7 +73,8 @@ class CSVService:
         X.to_csv(csv_buffer, index=False)
         try:
             self.response = s3.Object(bucket.name, self.path).put(Body=csv_buffer.getvalue())
-            if self.verbose: print(f"CSV Service Output to File: {str(self.path)}")
+            if self.verbose: 
+                print(f"CSV Service Output to File: {str(self.path)}")
         except Exception as ex:
             print(ex)
 
@@ -105,8 +107,10 @@ class ParquetService:
             self.s3obj = bucket.Object(self.path).get()
             bytes_data = self.s3obj['Body'].read()
             df = pd.read_parquet(BytesIO(bytes_data), **kwargs)
-            if self.verbose: print(f"Parquet service read from s3: {str(self.path)}")
-            if self.schema_map: df.rename(columns=self.schema_map, inplace=True)
+            if self.verbose: 
+                print(f"Parquet service read from s3: {str(self.path)}")
+            if self.schema_map: 
+                df.rename(columns=self.schema_map, inplace=True)
             return df
         except Exception as ex:
             print(ex)
@@ -122,7 +126,8 @@ class ParquetService:
         X.to_parquet(buffer, index=False)
         try:
             self.response = s3.Object(bucket.name, self.path).put(Body=buffer.getvalue())
-            if self.verbose: print(f"Parquet service written to s3: {str(self.path)}")
+            if self.verbose: 
+                print(f"Parquet service written to s3: {str(self.path)}")
         except Exception as ex:
             print(ex)
 
