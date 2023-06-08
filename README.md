@@ -63,13 +63,19 @@ To install the package locally execute the following steps:
 
 ```bash
 pip install -r requirements.txt         
-pip install -e src                     # install own package
+pip install -e .                     # install own package
 ```
 
-Start application locally:
+Start REST API locally:
 ```bash
 uvicorn main:app --reload         # checkout Swagger docs: http://127.0.0.1:8000/docs 
 ```
+
+Start Streamlit app locally:
+```bash
+streamlit run streamlit_app.py         
+```
+
 
 Build image and run app in container:
 ```bash                                 

@@ -1,7 +1,8 @@
-uvicorn
-fastapi
-loguru
-pandas
-PyYAML
+uvicorn==0.22.*
+fastapi==0.96.*
+loguru==0.7.*
+pandas==2.0.*
+PyYAML==6.*
 toml
+streamlit==1.23.*
 #boto3      # in case you want to use AWS
