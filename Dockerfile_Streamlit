@@ -1,0 +1,13 @@
+FROM python:3.8
+RUN apt-get clean -y && apt-get update -y && apt-get install bash
+RUN pip install --upgrade pip 
+#EXPOSE 8080
+EXPOSE 5000       
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+RUN pip install -e .
+#CMD [ "streamlit", "run", "streamlit_app.py", "--server.port=8080" ]   
+CMD [ "streamlit", "run", "streamlit_app.py"]   
+
+

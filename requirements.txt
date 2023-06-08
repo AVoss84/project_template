@@ -5,4 +5,5 @@ pandas==2.0.*
 PyYAML==6.*
 toml
 streamlit==1.23.*
+watchdog
 #boto3      # in case you want to use AWS

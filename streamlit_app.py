@@ -1,12 +1,17 @@
 import streamlit as st
 
-
-st.title('🦜🔗 My Web App')
-
+st.title('🥳 🔗 My Web App')  
 
 with st.sidebar:
     text = st.text_input('Paste something here:')
-    st.success(text)
+    if text:
+        st.success(text)
+
+    # Retrieve your secrets via the st.secrets dict:
+    st.write("DB username:", st.secrets["db_username"])
+    st.write("DB password:", st.secrets["db_password"])
+    st.write("My cool secrets:", st.secrets["my_cool_secrets"]["things_i_like"])
+
 
 with st.form('my_form'):
   
