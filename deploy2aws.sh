@@ -21,3 +21,4 @@ aws ecr get-login-password --region ${region}|docker login --username AWS --pass
 docker build -t ${algorithm_name} -f ./${dockerfile_name} .
 docker tag ${algorithm_name} ${fullname}
 docker push ${fullname}
+#  docker container run -d -p 5000:5000 --name=my_image_aws 6ae6554a8aac
