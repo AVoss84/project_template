@@ -5,39 +5,36 @@ This is a blueprint of a generic end-to-end data science project, i.e. building 
 ## Package structure
 
 ```
-├── docker-compose.yaml
-├── Dockerfile
-├── logs
-├── main.py                               # REST API definition 
+├── CHANGELOG.md
+├── Dockerfile_Fastapi       # vanilla rest api image
+├── Dockerfile_Streamlit     # vanilla streamlit image
 ├── README.md
+├── deploy2aws.sh            # build image and push to AWS ECR
+├── docker-compose.yaml
+├── logs
+├── main.py                  # REST API definition 
 ├── requirements.txt
-└── src
-    ├── __init__.py
-    ├── my_package
-    │   ├── config
-    │   │   ├── config.py
-    │   │   ├── global_config.py          # user environemntal variables
-    │   │   ├── __init__.py
-    │   │   └── input_output.yaml         # structure reading and writing of files
-    │   ├── data                          # temporary data dump (will be git ignored)
-    │   ├── resources
-    │   │   ├── __init__.py
-    │   │   ├── postprocessor.py
-    │   │   ├── predictor.py
-    │   │   ├── preprocessor.py
-    │   │   ├── README.md
-    │   │   └── trainer.py
-    │   ├── services
-    │   │   ├── file.py
-    │   │   ├── __init__.py
-    │   │   ├── pipelines.py
-    │   │   ├── publisher.py
-    │   │   └── README.md
-    │   └── utils
-    │       ├── __init__.py
-    │       └── utils.py
-    ├── notebooks
-    └── setup.py
+├── setup.py
+├── src
+│   ├── my_package
+│   │   ├── config
+│   │   │   ├── config.py
+│   │   │   ├── global_config.py
+│   │   │   └── input_output.yaml
+│   │   ├── resources
+│   │   │   ├── postprocessor.py
+│   │   │   ├── predictor.py
+│   │   │   ├── preprocessor.py
+│   │   │   └── trainer.py
+│   │   ├── services
+│   │   │   ├── file.py
+│   │   │   ├── file_aws.py
+│   │   │   ├── pipelines.py
+│   │   │   └── publisher.py
+│   │   └── utils
+│   │       └── utils.py
+│   └── notebooks
+└── streamlit_app.py 
 ```
 
 ## Use Case description
@@ -63,7 +60,7 @@ To install the package locally execute the following steps:
 
 ```bash
 pip install -r requirements.txt         
-pip install -e .                     # install own package
+pip install -e .                     # install package
 ```
 
 Start REST API locally:
