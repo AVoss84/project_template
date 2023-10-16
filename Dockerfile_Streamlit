@@ -6,6 +6,5 @@ EXPOSE 5000
 COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
-RUN pip install -e .
 #CMD [ "streamlit", "run", "streamlit_app.py", "--server.port=8080" ]   
 CMD [ "streamlit", "run", "streamlit_app.py"]   
