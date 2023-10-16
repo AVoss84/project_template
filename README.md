@@ -60,7 +60,6 @@ To install the package locally execute the following steps:
 
 ```bash
 pip install -r requirements.txt         
-pip install -e .                     # install package
 ```
 
 Start REST API locally:

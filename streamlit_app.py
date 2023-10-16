@@ -20,6 +20,7 @@ with st.form('my_form'):
     submitted = st.form_submit_button('Submit')
 
     if submitted :
-        st.info(text2)
+        st.info("42")
+        st.snow()
 
 # streamlit run streamlit_app.py
