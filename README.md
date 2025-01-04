@@ -52,14 +52,18 @@ This is a blueprint of a generic end-to-end data science project, i.e. building 
 
 Create conda virtual environment with required packages 
 ```bash
-conda create -n proj_templ python=3.8 -y
-conda activate proj_templ
+uv venv env_mid --python 3.12
+source env_mid/bin/activate
+
+# conda create -n proj_templ python=3.12 -y
+# conda activate proj_templ
 ```
 
 To install the package locally execute the following steps:
 
 ```bash
-pip install -r requirements.txt         
+uv pip install -r requirements.txt
+# pip install -r requirements.txt  
 ```
 
 Start REST API locally:
@@ -71,7 +75,6 @@ Start Streamlit app locally:
 ```bash
 streamlit run streamlit_app.py         
 ```
-
 
 Build image and run app in container:
 ```bash                                 
