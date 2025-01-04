@@ -1,18 +1,20 @@
-import os, sys
+import os
 from pathlib import Path
 
 #-------------------------------
 # Which environment to use?
 #-------------------------------
-#using = 'vm'                   # own virtual machine
-using = 'docker'                # Docker container
+using = 'vm'                   # own virtual machine
+#using = 'docker'                # Docker container
+
+package_root = Path(__file__).parent.parent.parent.parent
 
 ## Check if required environment variables exist
 ## if not apply default paths from test environment:
 #-----------------------------------------------------------
 if using == 'vm':
     defaults = {
-            "UC_CODE_DIR": str(Path.home() / "Documents/GitHub/project_template/src"),       
+            "UC_CODE_DIR": str(package_root / "src"),      
             "UC_DATA_DIR": "",          # external
             "UC_DATA_PKG_DIR": "",      # internal, i.e. data folder within package                  
             "UC_DB_CONNECTION": 'postgresql://postgres...', 
@@ -44,4 +46,3 @@ UC_AWS_DIR = os.environ['UC_AWS_DIR']
 UC_DB_CONNECTION= os.environ['UC_DB_CONNECTION']
 UC_APP_CONNECTION = os.environ['UC_APP_CONNECTION']
 UC_DATA_PKG_DIR = os.environ['UC_DATA_PKG_DIR']
-
