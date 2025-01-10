@@ -50,13 +50,10 @@ This is a blueprint of a generic end-to-end data science project, i.e. building 
 
 ## Package installation and application develoment
 
-Create conda virtual environment with required packages 
+Create virtual environment with required packages 
 ```bash
 uv venv env_mid --python 3.12
 source env_mid/bin/activate
-
-# conda create -n proj_templ python=3.12 -y
-# conda activate proj_templ
 ```
 
 To install the package locally execute the following steps:
